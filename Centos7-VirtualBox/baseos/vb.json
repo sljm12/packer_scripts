@@ -17,16 +17,9 @@
       "kickstart.ks"
     ],
     "hard_drive_interface": "sata",
-    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+    "shutdown_command": "echo 'server' | sudo -S shutdown -P now",
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "1024"]
-    ]
-  }],
-  "provisioners": [{
-    "type": "shell",
-    "inline": [
-      "sleep 30",
-      "sudo -S yum -y update"
     ]
   }]
 }
