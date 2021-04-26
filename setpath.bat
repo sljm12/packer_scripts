@@ -1,2 +1,2 @@
-set PATH=%PATH%;C:\workspace\packer_scripts\
+set PATH=%PATH%;%~dp0
 set PACKER_LOG=1
