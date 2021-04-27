@@ -1,21 +1,20 @@
 {
   "builders": [{
 	  "type": "virtualbox-ovf",
-	  "source_path": "D:/workspace/packer/Centos7-VirtualBox/baseos/output-virtualbox-iso/packer-virtualbox-iso-1619084607.ovf",
-    "ssh_cipher": ["aes256-ctr"],
+    "source_path": "D:/workspace/packer/Centos7-VirtualBox/baseos/output-virtualbox-iso/packer-virtualbox-iso-1619486776.ovf",
 	  "ssh_username": "root",
 	  "ssh_password": "server",
 	  "shutdown_command": "echo 'server' | sudo -S shutdown -P now"
 	}
 ],
   "provisioners": [{
+      "type":"file",
+      "source":"CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh",
+      "destination":"/tmp/CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh"
+  },{
       "type":"shell",
       "skip_clean": "true",
-      "execute_command":"sudo -S sh {{ .Path }} \"Level 2 - Server\"",
-      "script":"CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh"
-    },{
-      "type":"shell-local",
-      "inline":[
-      ]
+      "execute_command":"sudo -S sh {{ .Path }} ",
+      "inline":"sh /tmp/CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh \"Level 2 - Server\""
     }]
 }

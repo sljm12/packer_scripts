@@ -49,7 +49,8 @@ authconfig --enableshadow --passalgo=sha512
 
 # State of SELinux on the installed system (optional)
 # Defaults to enforcing
-selinux --permissive
+#selinux --permissive
+selinux --enforcing
 
 # Set the system time zone (required)
 timezone --utc America/New_York
@@ -78,7 +79,7 @@ part pv.01 --grow --size=1
 # Create a Logical Volume Management (LVM) group (optional)
 volgroup VolGroup --pesize=4096 pv.01
 # Create particular logical volumes (optional)
-logvol / --fstype=xfs --name=LogVol06 --vgname=VolGroup --size=12288 --grow
+logvol / --fstype=xfs --name=LogVol07 --vgname=VolGroup --size=12288 --grow
 # CCE-26557-9: Ensure /home Located On Separate Partition
 logvol /home --fstype=xfs --name=LogVol02 --vgname=VolGroup --size=1024 --fsoptions="nodev"
 # CCE-26435-8: Ensure /tmp Located On Separate Partition
@@ -89,6 +90,7 @@ logvol /var --fstype=xfs --name=LogVol03 --vgname=VolGroup --size=2048 --fsoptio
 logvol /var/log --fstype=xfs --name=LogVol04 --vgname=VolGroup --size=1024 --fsoptions="nodev"
 # CCE-26436-6: Ensure /var/log/audit Located On Separate Partition
 logvol /var/log/audit --fstype=xfs --name=LogVol05 --vgname=VolGroup --size=512 --fsoptions="nodev"
+logvol /var/tmp --fstype=xfs --name=LogVol06 --vgname=VolGroup --size=512 --fsoptions="nodev,nosuid,noexec"
 logvol swap --name=lv_swap --vgname=VolGroup --size=2016
 
 
