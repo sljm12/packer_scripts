@@ -1,10 +1,11 @@
 {
   "builders": [{
 	  "type": "virtualbox-ovf",
-    "source_path": "D:/workspace/packer/Centos7-VirtualBox/baseos/output-virtualbox-iso/packer-virtualbox-iso-1619486776.ovf",
+    "source_path": "../baseos/output-virtualbox-iso/centos7base.ovf",
 	  "ssh_username": "root",
 	  "ssh_password": "server",
-	  "shutdown_command": "echo 'server' | sudo -S shutdown -P now"
+	  "shutdown_command": "echo 'server' | sudo -S shutdown -P now",
+    "output_filename":"centos7CISL1"
 	}
 ],
   "provisioners": [{
@@ -15,6 +16,6 @@
       "type":"shell",
       "skip_clean": "true",
       "execute_command":"sudo -S sh {{ .Path }} ",
-      "inline":"sh /tmp/CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh \"Level 2 - Server\""
+      "inline":"sh /tmp/CIS_CentOS_Linux_7_Benchmark_v2.1.0.sh \"Level 1 - Server\""
     }]
 }

@@ -17,6 +17,7 @@
       "kickstart.ks"
     ],
     "hard_drive_interface": "sata",
+    "output_filename":"centos7base",
     "shutdown_command": "echo 'admin123' | sudo -S shutdown -P now",
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "1024"]
