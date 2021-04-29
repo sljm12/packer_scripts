@@ -1,5 +1,5 @@
 #1.1.17 Ensure noexec option set on /dev/shm partition
-mount -o remount,noexec /dev/shm
+echo "tmpfs /dev/shm tmpfs defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
 
 #1.1.21-Ensure sticky bit is set on all world-writable directories
 df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 2>/dev/null | xargs chmod a+t 

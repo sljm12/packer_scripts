@@ -1,0 +1,20 @@
+{
+  "builders": [{
+	  "type": "virtualbox-ovf",
+    "source_path": "../apply_cis_benchmark/output-virtualbox-ovf/centos7CISL1.ovf",
+	  "ssh_username": "admin",
+	  "ssh_password": "P@ssw0rd",
+	  "shutdown_command": "echo 'P@ssw0rd' | sudo -S shutdown -P now",
+    "output_filename":"centos7CISL1"
+	}
+],
+  "provisioners": [{
+      "type":"file",
+      "source":"rules.sh",
+      "destination":"rules.sh"
+  },{
+      "type":"shell",
+      "execute_command":"echo 'P@ssw0rd'| sudo -S sh {{ .Path }} ",
+      "inline":"sh /tmp/rules.sh"
+    }]
+}
