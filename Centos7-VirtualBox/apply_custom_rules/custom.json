@@ -11,7 +11,7 @@
   "provisioners": [{
       "type":"file",
       "source":"rules.sh",
-      "destination":"rules.sh"
+      "destination":"/tmp/rules.sh"
   },{
       "type":"shell",
       "execute_command":"echo 'P@ssw0rd'| sudo -S sh {{ .Path }} ",
