@@ -38,8 +38,8 @@ user --name=admin --groups=wheel --password=$6$Ga6ZnIlytrWpuCzO$q0LqT1USHpahzUaf
 # Configure firewall settings for the system (optional)
 # --enabled	reject incoming connections that are not in response to outbound requests
 # --ssh		allow sshd service through the firewall
-# firewall --enabled --ssh
-firewall --disabled
+firewall --enabled --ssh
+#firewall --disabled
 
 # Set up the authentication options for the system (required)
 # --enableshadow	enable shadowed passwords by default

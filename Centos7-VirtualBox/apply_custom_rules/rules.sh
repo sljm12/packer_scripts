@@ -2,8 +2,12 @@
 echo "tmpfs /dev/shm tmpfs defaults,nodev,nosuid,noexec 0 0" >> /etc/fstab
 
 #3.2.3 Ensure secure ICMP redirects are not accepted
+cp /etc/sysctl.conf ~/sysctl.conf.bak
 sed -i 's/net.ipv4.conf.all.secure_redirects = 1/net.ipv4.conf.all.secure_redirects = 0/' /etc/sysctl.conf
 sed -i 's/net.ipv4.conf.default.secure_redirects = 1/net.ipv4.conf.default.secure_redirects = 0/' /etc/sysctl.conf
+sysctl -w net.ipv4.conf.all.secure_redirects=0
+sysctl -w net.ipv4.conf.default.secure_redirects=0
+sysctl -w net.ipv4.route.flush=1 
 
 #3.2.4 Ensure suspicious packets are logged
 sysctl -w net.ipv4.conf.all.secure_redirects=0
