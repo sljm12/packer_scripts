@@ -1,6 +1,6 @@
 This is a set of scripts for Packer by Hashicorp that helps me build a base image for CentOS and updates the packages
 
-This assumes that packer.exe is in the root directory of this repo and that we are using virtualbox as the hypervisor
+This assumes that packer.exe (https://www.packer.io/) is in the root directory of this repo and that we are using virtualbox as the hypervisor
 
 run "setpath.bat" to set the packer.exe into the path and also to set PACKER_LOG=1 for verbose logging so that you can see the ssh output
 
