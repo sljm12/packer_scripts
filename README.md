@@ -18,3 +18,8 @@ echo -e 'P@ssw0rd\nP@ssw0rd' | passwd
 3. apply_custom_rules
 - run "packer build custom.json"
 
+Other builds
+1. Ansible
+- Will install ansible from the epel-release repo
+- Depends on the OVF from apply_custom_rules
+
