@@ -12,9 +12,11 @@ The sequence in which they are run
 2. apply_cis_benchmark
 - run "packer build cis_benchmark.json"
 - For this step place the CIS Remdiation script in the directory 
-- add 2 lines to the bottom of the script to reset the password when the cipher is changed. If not u might find yourself unable to login after the remediation is done
+- add 2 lines to the bottom of the script to reset the password when the cipher is changed. If not u might find yourself unable to login after the remediation is done.
+```
 echo -e 'P@ssw0rd\nP@ssw0rd' | passwd admin
 echo -e 'P@ssw0rd\nP@ssw0rd' | passwd
+```
 3. apply_custom_rules
 - run "packer build custom.json"
 
