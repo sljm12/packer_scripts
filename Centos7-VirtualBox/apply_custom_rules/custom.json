@@ -13,6 +13,10 @@
       "source":"rules.sh",
       "destination":"/tmp/rules.sh"
   },{
+      "type":"file",
+      "source":"issue",
+      "destination":"/tmp/issue"
+  },{
       "type":"shell",
       "execute_command":"echo 'P@ssw0rd'| sudo -S sh {{ .Path }} ",
       "inline":"sh /tmp/rules.sh"

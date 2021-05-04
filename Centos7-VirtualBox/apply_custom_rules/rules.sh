@@ -32,4 +32,8 @@ echo -e "\nTMOUT=600\n" >> /etc/profile
 #Rule to allow SSHD
 echo "sshd: ALL" >> /etc/hosts.allow 
 
+#Set the ISSUE
+yes | cp -f /tmp/issue /etc/issue
+yes | cp -f /tmp/issue /etc/issue.net
+
 
